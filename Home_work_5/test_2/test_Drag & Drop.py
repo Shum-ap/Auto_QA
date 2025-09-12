@@ -40,6 +40,6 @@ def test_drag_and_drop_image(driver):
     assert final_trash_count == initial_trash_count + 1, f"Ожидалась 1 фотография в корзине, найдено: {final_trash_count}"
     assert final_gallery_count == initial_gallery_count - 1, f"Ожидалось 3 фотографии в галерее, найдено: {final_gallery_count}"
 
-    print("✅ Тест пройден: Фотография успешно перемещена в корзину.")
+    print(" Тест пройден: Фотография успешно перемещена в корзину.")
     print(f"   - Фотографий в корзине: {final_trash_count}")
     print(f"   - Фотографий в галерее: {final_gallery_count}")
