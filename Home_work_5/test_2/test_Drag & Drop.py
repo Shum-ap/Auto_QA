@@ -19,26 +19,21 @@ def test_drag_and_drop_image(driver):
 
     driver.get("https://www.globalsqa.com/demoSite/practice/droppable/photo-manager.html")
 
-    # Ожидание загрузки элементов
     gallery_items = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#gallery li"))
     )
     trash_element = driver.find_element(By.ID, "trash")
 
-    # Запоминаем начальные состояния
     initial_gallery_count = len(gallery_items)
     initial_trash_count = len(driver.find_elements(By.CSS_SELECTOR, "#trash li"))
 
-    # Прокручиваем первый элемент в центр экрана
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", gallery_items[0])
     time.sleep(0.5)
 
-    # Выполняем перетаскивание
     actions = ActionChains(driver)
     actions.drag_and_drop(gallery_items[0], trash_element).perform()
-    time.sleep(1)  # Ждем обработки
+    time.sleep(1)
 
-    # Проверка результатов
     final_gallery_count = len(driver.find_elements(By.CSS_SELECTOR, "#gallery li"))
     final_trash_count = len(driver.find_elements(By.CSS_SELECTOR, "#trash li"))
 
