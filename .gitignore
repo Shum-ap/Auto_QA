@@ -2,7 +2,7 @@
 __pycache__/
 *.py[codz]
 *$py.class
-
+swag_pom_test.egg-info/
 # C extensions
 *.so
 
